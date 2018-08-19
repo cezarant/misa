@@ -63,22 +63,22 @@ app.get('/iniciamqtt', function (request, response){
 });
 
 app.get('/retiraled', function (request, response){
-  client.publish(process.env.topicosubscribe,'80');       
+  client.publish(process.env.topicopublish,'2');       
   response.end('Led_retirado');  
 });
 
 app.get('/devolveled', function (request, response){
-  client.publish(process.env.topicosubscribe,'80');    
+  client.publish(process.env.topicopublish,'2');    
   response.end('Led_devolvido');
 });
 
 app.get('/retirabutton', function (request, response){
-  client.publish(process.env.topicosubscribe,'120');    
+  client.publish(process.env.topicopublish,'2');    
   response.end('Button_retirado');
 });
 
 app.get('/devolvebutton', function (request, response){
-  client.publish(process.env.topicosubscribe,'120'); 
+  client.publish(process.env.topicopublish,'2'); 
   response.end('Button_devolvido');
 });
 /**************************** Seção HTTP **********************************/
