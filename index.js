@@ -5,13 +5,13 @@ var client;
 /***********************  Seção MQTT *****************************/
 var options = 
 {
-	host: process.env.mqtthost,
-	port: process.env.porta,
-	protocolId: 'MQIsdp',
-	secureProtocol: 'TLSv1_method',	
+	host:            process.env.mqtthost,
+	port:            process.env.porta,
+	protocolId:      process.env.protocolid,
+	secureProtocol:  process.env.secureprotocol,	
 	protocolVersion: 3,
-	username: 'fxccbsjv',
-  	password: '5i6sXGxi4zVL'
+	username:        process.env.username,
+  	password:        process.env.password
 };
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
