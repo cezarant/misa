@@ -24,6 +24,20 @@ function iniciaMQTT()
       comunicaAoCliente("Conexao MQTT realizada com sucesso!");			  	       
     });
 
+    client.on('error', function (topic, message)
+    {
+       var msgErro = "Nao foi possivel se conectar:<br>"+ 
+                     "Log de dados de conexao:<br>"+ 	
+		     "Mqtthost:" + process.env.mqtthost +"<br>"+ 	
+		     "Porta:" + process.env.porta +"<br>"+ 	
+		     "ProtocoloId:" + process.env.protocolid +"<br>"+ 	
+		     "Secure Protocol:" + process.env.secureprotocol +"<br>"+ 	
+		     "Protocol Version:" + process.env.protocolversion +"<br>"+ 	
+		     "User name:" + process.env.username+"<br>" + 	
+		     "Password:" + process.env.password   
+       comunicaAoCliente(msgErro);			 	       
+    });
+
     client.on('message', function (topic, message)
     {  
        console.log("Mensagem recebida: "+ message.toString());              
