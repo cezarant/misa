@@ -5,19 +5,19 @@ var client;
 /***********************  Seção MQTT *****************************/
 var options = 
 {
-	host: process.env.mqtthost,
-	port: process.env.porta,
-	protocolId: process.env.protocolid,
-	secureProtocol: process.env.secureprotocol,	
-	protocolVersion: process.env.protocolversion,
-	username: process.env.username,
-  	password: process.env.password
+	host: 'm13.cloudmqtt.com',
+	port: 11249,
+	protocolId: 'MQIsdp',
+	secureProtocol: 'TLSv1_method',	
+	protocolVersion: 3,
+	username: 'fxccbsjv',
+  	password: '5i6sXGxi4zVL'
 };
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 function iniciaMQTT()
 {
-    var msgErro = "Nao foi possivel se conectar:<br>"+ 
+    var msgErro =    "Dados de conexao:<br>"+ 
                      "Log de dados de conexao:<br>"+ 	
 		     "Mqtthost:" + process.env.mqtthost +"<br>"+ 	
 		     "Porta:" + process.env.porta +"<br>"+ 	
