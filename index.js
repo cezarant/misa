@@ -6,7 +6,7 @@ var client;
 var options = 
 {
 	host: process.env.mqtthost,
-	port: 11249,
+	port: process.env.porta,
 	protocolId: 'MQIsdp',
 	secureProtocol: 'TLSv1_method',	
 	protocolVersion: 3,
