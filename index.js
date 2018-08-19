@@ -5,7 +5,7 @@ var client;
 /***********************  Seção MQTT *****************************/
 var options = 
 {
-	host: 'm13.cloudmqtt.com',
+	host: process.env.mqtthost,
 	port: 11249,
 	protocolId: 'MQIsdp',
 	secureProtocol: 'TLSv1_method',	
