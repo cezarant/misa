@@ -21,20 +21,19 @@ function iniciaMQTT()
     client.on('connect', function ()
     {
       client.subscribe(process.env.topicosubscribe);  		
+      comunicaAoCliente("Conexao MQTT realizada com sucesso!");			  	       
     });
 
     client.on('message', function (topic, message)
     {  
-       console.log("Mensagem recebida: "+ message.toString());       
-       var json = JSON.parse(message.toString());       
-       comunicaAoCliente("Componente retirado:" + json.nome);			       	       
-    });
+       console.log("Mensagem recebida: "+ message.toString());              
+       comunicaAoCliente("Mensagem recebida:" + message.toString());			      	  });
 }
 /******************* Seção REST **********************************/
-
 app.get('/iniciamqtt', function (request, response){
   iniciaMQTT();
   comunicaAoCliente('MQTT iniciado! :)');  
+  response.end('MQTT iniciado!');  
 });
 
 app.get('/retiraled', function (request, response){

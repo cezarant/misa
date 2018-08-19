@@ -54,7 +54,7 @@
                     Misa in place - Caixa de Ferramentas Smart para coisas miúdas. 					
                 </h2>                
 		<p>
-		<button id="iniciarCrawler" type="button" class="btn btn-danger" onclick="iniciamqtt()">Iniciar</button>  
+		<button id="iniciarCrawler" type="button" class="btn btn-danger" onclick="iniciarMQTT()">Iniciar</button>  
 		</p>				
 	<p>
 		<ul class="mensagens" id="messages">									
@@ -70,7 +70,7 @@
 	<script>
 	  var socket = io();
 	  var etapa = 0; 
-      	  function iniciarCrawler()
+      	  function iniciarMQTT()
 	  {
 		socket.emit('chat message', 'etapa'+ etapa);
 	  }       		
