@@ -7,9 +7,9 @@ var options =
 {
 	host: process.env.mqtthost,
 	port: process.env.porta,
-	protocolId: process.env.protocolId,
-	secureProtocol: process.env.secureProtocol,	
-	protocolVersion: process.env.protocolVersion,
+	protocolId: process.env.protocolid,
+	secureProtocol: process.env.secureprotocol,	
+	protocolVersion: process.env.protocolversion,
 	username: process.env.username,
   	password: process.env.password
 };
@@ -26,8 +26,7 @@ function iniciaMQTT()
     client.on('message', function (topic, message)
     {  
        console.log("Mensagem recebida: "+ message.toString());       
-       var json = JSON.parse(message.toString());
-       // preparaEstoque(json.id,json.retira);	
+       var json = JSON.parse(message.toString());       
        comunicaAoCliente("Componente retirado:" + json.nome);			       	       
     });
 }
@@ -35,7 +34,7 @@ function iniciaMQTT()
 
 app.get('/iniciamqtt', function (request, response){
   iniciaMQTT();
-  response.end('Inicia MQTT');
+  comunicaAoCliente('MQTT iniciado! :)');  
 });
 
 app.get('/retiraled', function (request, response){
