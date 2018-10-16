@@ -1,0 +1,45 @@
+{
+  "name": "misa",
+  "description": "",
+  "scripts": {
+  },
+  "env": {
+    "mqtthost": {
+      "required": true
+    },
+    "password": {
+      "required": true
+    },
+    "porta": {
+      "required": true
+    },
+    "protocolId": {
+      "required": true
+    },
+    "protocolVersion": {
+      "required": true
+    },
+    "secureProtocol": {
+      "required": true
+    },
+    "topicosubscribe": {
+      "required": true
+    },
+    "username": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
