@@ -54,7 +54,21 @@
                     Teste de Heroku Stagging
                 </h2>                
 		<p>
-		<button id="iniciarCrawler" type="button" class="btn btn-danger" onclick="iniciarMQTT()">Iniciar</button>  
+		<button id="btnIniciarMQTT" 
+                        type="button" 
+                        class="btn btn-danger" 
+                        onclick="stateMQTT(0)">Iniciar
+                </button>
+		<button id="btnLevantar" 
+                        type="button" 
+                        class="btn btn-danger" 
+                        onclick="stateMQTT(1)">Levanta elevador
+                </button>
+		<button id="btnAbaixar" 
+                        type="button" 
+                        class="btn btn-danger" 
+                        onclick="stateMQTT(2)">Abaixa elevador
+                </button>		  
 		</p>				
 	<p>
 		<ul class="mensagens" id="messages">									
@@ -70,9 +84,9 @@
 	<script>
 	  var socket = io();
 	  var etapa = 0; 
-      	  function iniciarMQTT()
+      	  function stateMQTT(stateValue)
 	  {
-		socket.emit('chat message', 'etapa'+ etapa);
+		socket.emit('chat message', 'state'+ stateValue);
 	  }       		
 	  socket.on('chat message', function(msg)
 	  {        		

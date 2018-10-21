@@ -32,8 +32,8 @@ function iniciaMQTT()
     client= mqtt.connect(options);
     client.on('connect', function ()
     {
-      client.subscribe(process.env.topicosubscribe);  		
-      comunicaAoCliente("Conexao MQTT realizada com sucesso!");			  	       
+	      client.subscribe(process.env.topicosubscribe);  		
+      	      comunicaAoCliente("Conexao MQTT realizada com sucesso!");			        
     });
 
     client.on('error', function (topic, message)
@@ -68,7 +68,7 @@ app.get('/retiraled', function (request, response){
 });
 
 app.get('/devolveled', function (request, response){
-    client.publish('/nodemcu/12612238/fromnode','2');    
+  client.publish('/nodemcu/12612238/fromnode','2');    
   response.end('Led_devolvido');
 });
 
@@ -107,10 +107,20 @@ function comunicaAoCliente(msg)
 function mediador(etapa)
 {
     console.log(etapa); 
-    if(etapa == "etapa0")
+    if(etapa == "state0")
     {	
 	 comunicaAoCliente('MQTT iniciado! :)');
          iniciaMQTT();	
+    }
+    if(etapa == "state1")
+    {	
+	 comunicaAoCliente('Levantando o elevador...');
+         client.publish('/nodemcu/12612238/fromnode','2');    	
+    }
+    if(etapa == "state2")
+    {	
+	 comunicaAoCliente('Abaixando o elevador...');
+         client.publish('/nodemcu/12612238/fromnode','1');    	
     }	
 } 
 /***************************  FIM MQTT ***********************************/
