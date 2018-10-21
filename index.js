@@ -7,8 +7,8 @@ var options =
 {
 	host:            process.env.mqtthost,
 	port:            process.env.porta,
-	protocolId:      process.env.protocolid,
-	secureProtocol:  process.env.secureprotocol,	
+	protocolId:      process.env.protocolId,
+	secureProtocol:  process.env.protocolVersion,	
 	protocolVersion: 3,
 	username:        process.env.username,
   	password:        process.env.password
@@ -21,9 +21,9 @@ function iniciaMQTT()
                      "Log de dados de conexao:<br>"+ 	
 		     "Mqtthost:" + process.env.mqtthost +"<br>"+ 	
 		     "Porta:" + process.env.porta +"<br>"+ 	
-		     "ProtocoloId:" + process.env.protocolid +"<br>"+ 	
-		     "Secure Protocol:" + process.env.secureprotocol +"<br>"+ 	
-		     "Protocol Version:" + process.env.protocolversion +"<br>"+ 	
+		     "ProtocoloId:" + process.env.protocolId +"<br>"+ 	
+		     "Secure Protocol:" + process.env.secureProtocol +"<br>"+ 	
+		     "Protocol Version:" + process.env.protocolVersion +"<br>"+ 	
 		     "User name:" + process.env.username+"<br>" + 	
 		     "Password:" + process.env.password   
     
