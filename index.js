@@ -115,7 +115,7 @@ function mediador(etapa)
     if(etapa == "state1")
     {	
 	 comunicaAoCliente('Levantando o elevador...');
-         client.publish(process.env.topicopublish,2);    	
+         client.publish(process.env.topicopublish,'2');    	
     }
     if(etapa == "state2")
     {	
