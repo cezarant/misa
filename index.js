@@ -115,12 +115,12 @@ function mediador(etapa)
     if(etapa == "state1")
     {	
 	 comunicaAoCliente('Levantando o elevador...');
-         client.publish(process.env.topicopublish,'2');    	
+         client.publish('/nodemcu/12612238/fromnode','2');    	
     }
     if(etapa == "state2")
     {	
 	 comunicaAoCliente('Abaixando o elevador...');
-         client.publish(process.env.topicopublish,1);    	
+         client.publish('/nodemcu/12612238/fromnode',1);    	
     }	
 } 
 /***************************  FIM MQTT ***********************************/
