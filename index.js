@@ -122,6 +122,16 @@ function mediador(etapa)
 	 comunicaAoCliente('Abaixando o elevador...');
          client.publish('/nodemcu/12612238/fromnode','1');    	
     }	
+    if(etapa == "state3")
+    {	
+	 comunicaAoCliente('Abaixando o elevador...');
+         client.publish('/nodemcu/12612238/fromnode','3');    	
+    }		
+    if(etapa == "state4")
+    {	
+	 comunicaAoCliente('Abaixando o elevador...');
+         client.publish('/nodemcu/12612238/fromnode','4');    	
+    }		
 } 
 /***************************  FIM MQTT ***********************************/
 /**************************************************************************/
