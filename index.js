@@ -68,12 +68,12 @@ app.get('/retiraled', function (request, response){
 });
 
 app.get('/devolveled', function (request, response){
-  client.publish('/nodemcu/12612238/fromnode','2');    
+  client.publish(process.env.topicopublish,'2');    
   response.end('Led_devolvido');
 });
 
 app.get('/retirabutton', function (request, response){
-  client.publish('/nodemcu/12612238/fromnode',2);    
+  client.publish(process.env.topicopublish,2);    
   response.end('Button_retirado');
 });
 
@@ -115,27 +115,27 @@ function mediador(etapa)
     if(etapa == "state1")
     {	
 	 comunicaAoCliente('Levantando o elevador...');
-         client.publish('/nodemcu/12612238/fromnode','2');    	
+         client.publish(process.env.topicopublish,'2');    	
     }
     if(etapa == "state2")
     {	
 	 comunicaAoCliente('Abaixando o elevador...');
-         client.publish('/nodemcu/12612238/fromnode','1');    	
+         client.publish(process.env.topicopublish,'1');    	
     }	
     if(etapa == "state3")
     {	
 	 comunicaAoCliente('Abaixando o elevador...');
-         client.publish('/nodemcu/12612238/fromnode','3');    	
+         client.publish(process.env.topicopublish,'3');    	
     }		
     if(etapa == "state4")
     {	
 	 comunicaAoCliente('Abaixando o elevador...');
-         client.publish('/nodemcu/12612238/fromnode','4');    	
+         client.publish(process.env.topicopublish,'4');    	
     }
     if(etapa == "state5")
     {	
 	 comunicaAoCliente('Abaixando o elevador...');
-         client.publish('/nodemcu/12612238/fromnode','5');    	
+         client.publish(process.env.topicopublish,'5');    	
     }
 } 
 /***************************  FIM MQTT ***********************************/
