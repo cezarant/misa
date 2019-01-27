@@ -125,17 +125,22 @@ function mediador(etapa)
     if(etapa == "state3")
     {	
 	 comunicaAoCliente('Abaixando o elevador...');
-         client.publish(process.env.topicopublish,'3');    	
+         client.publish(process.env.topicosubscribe,'1');    	
     }		
     if(etapa == "state4")
     {	
 	 comunicaAoCliente('Abaixando o elevador...');
-         client.publish(process.env.topicopublish,'4');    	
+         client.publish(process.env.topicosubscribe,'2');    	
     }
     if(etapa == "state5")
     {	
 	 comunicaAoCliente('Abaixando o elevador...');
-         client.publish(process.env.topicopublish,'5');    	
+         client.publish(process.env.topicosubscribe,'3');    	
+    }
+    if(etapa == "state6")
+    {	
+	 comunicaAoCliente('Abaixando o elevador...');
+         client.publish(process.env.topicosubscribe,'4');    	
     }
 } 
 /***************************  FIM MQTT ***********************************/
