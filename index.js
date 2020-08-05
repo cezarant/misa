@@ -1,9 +1,9 @@
-var port = process.env.PORT || 3000;
+/*var port = process.env.PORT || 3000;
 var app = require('express')();
 var mqtt    = require('mqtt');
-var client; 
+var client; */
 /***********************  Seção MQTT *****************************/
-var options = 
+/*var options = 
 {
 	host:            process.env.mqtthost,
 	port:            process.env.porta,
@@ -53,10 +53,11 @@ function iniciaMQTT()
     client.on('message', function (topic, message)
     {  
        console.log("Mensagem recebida: "+ message.toString());              
-       comunicaAoCliente("Mensagem recebida:" + message.toString());			      	  });
-}
+       comunicaAoCliente("Mensagem recebida:" + message.toString());			      	  
+	});
+}*/
 /******************* Seção REST **********************************/
-app.get('/iniciamqtt', function (request, response){
+/*app.get('/iniciamqtt', function (request, response){
   iniciaMQTT();
   comunicaAoCliente('MQTT iniciado! :)');  
   response.end('MQTT iniciado!');  
@@ -80,9 +81,9 @@ app.get('/retirabutton', function (request, response){
 app.get('/devolvebutton', function (request, response){
   client.publish(process.env.topicopublish,'2'); 
   response.end('Button_devolvido');
-});
+});*/
 /**************************** Seção HTTP **********************************/
-http.listen(port, function()
+/*http.listen(port, function()
 {
   console.log('conectado em ' + port);      
 });
@@ -142,7 +143,16 @@ function mediador(etapa)
 	 comunicaAoCliente('Abaixando o elevador...');
          client.publish(process.env.topicosubscribe,'6');    	
     }
-} 
+} */
 /***************************  FIM MQTT ***********************************/
 /**************************************************************************/
-console.log('Server running at http://localhost:8080/');
+// console.log('Server running at http://localhost:8080/');*/
+const express = require('express');
+const path = require('path');
+const app = express();
+var port = process.env.PORT || 3000;
+app.use(express.static(path.join(__dirname, 'build')));
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+app.listen(port);
