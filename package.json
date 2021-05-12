@@ -7,7 +7,7 @@
     "gmail-send": "^1.2.11",
     "http": "0.0.0",
     "mqtt": "latest",
-    "nodemailer": "^4.1.0",
+    "nodemailer": "^6.4.16",
     "nodemailer-smtp-transport": "^2.7.4",
     "pg": "^6.1.0",
     "socket.io": "1.2.0"
